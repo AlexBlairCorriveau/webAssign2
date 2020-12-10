@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAppuser1Title}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAppuser1Label_id}"/>
+                    <h:outputText value="#{appuser1Controller.selected.id}" title="#{bundle.ViewAppuser1Title_id}"/>
+                    <h:outputText value="#{bundle.ViewAppuser1Label_userid}"/>
+                    <h:outputText value="#{appuser1Controller.selected.userid}" title="#{bundle.ViewAppuser1Title_userid}"/>
+                    <h:outputText value="#{bundle.ViewAppuser1Label_password}"/>
+                    <h:outputText value="#{appuser1Controller.selected.password}" title="#{bundle.ViewAppuser1Title_password}"/>
+                    <h:outputText value="#{bundle.ViewAppuser1Label_groupname}"/>
+                    <h:outputText value="#{appuser1Controller.selected.groupname}" title="#{bundle.ViewAppuser1Title_groupname}"/>
+                    <h:outputText value="#{bundle.ViewAppuser1Label_mobilephone}"/>
+                    <h:outputText value="#{appuser1Controller.selected.mobilephone}" title="#{bundle.ViewAppuser1Title_mobilephone}"/>
+                    <h:outputText value="#{bundle.ViewAppuser1Label_birthday}"/>
+                    <h:outputText value="#{appuser1Controller.selected.birthday}" title="#{bundle.ViewAppuser1Title_birthday}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{appuser1Controller.destroyAndView}" value="#{bundle.ViewAppuser1DestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAppuser1EditLink}"/>
+                <br />
+                <h:commandLink action="#{appuser1Controller.prepareCreate}" value="#{bundle.ViewAppuser1CreateLink}" />
+                <br />
+                <h:commandLink action="#{appuser1Controller.prepareList}" value="#{bundle.ViewAppuser1ShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAppuser1IndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
